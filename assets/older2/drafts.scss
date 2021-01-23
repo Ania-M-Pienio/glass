@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap");
+
+body {
+  background: linear-gradient(
+    rgba(43, 42, 42, 0.756),
+    rgba(223, 222, 222, 0.516)
+  );
+  overflow: hidden;
+  height: 99vh;
+}
+
+header {
+  height: 10vh;
+}
+
+
+.gallery-container {
+  width: 95%;
+  margin: 0 auto !important;
+  position: relative;
+  overflow: hidden;
+  border-left: 15px solid rgb(228, 228, 228);
+  border-right: 15px solid rgb(228, 228, 228);
+}
+
+.gallery-container figure {
+  position: absolute;
+  top: 0;
+  left: 180px;
+  height: 80vh;
+  width: calc(100vw - (3 * 180px));
+  box-shadow: 0 0 20px 1px rgba(60, 60, 60, 0.941);
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  margin: 0;
+  background: rgb(228, 228, 228);
+}
+
+.gallery-container figure figcaption {
+  color: white;
+  font-weight: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+
+  font-family: "Lobster Two", cursive;
+  /* transform: rotate(-2deg); */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  opacity: 0;
+  transition: all 1s;
+}
+
+h2 {
+  display: block;
+  width: 20%;
+  color: rgb(41, 41, 41);
+  text-align: right;
+  font-size: 60px;
+}
+
+// first figure is the relative parent
+.gallery-container > figure {
+  position: relative;
+  left: -15px !important;
+}
+
+.gallery-container figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.gallery-container input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px; // cover the visible part
+  height: 100%;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  opacity: 0;
+  z-index: 100;
+}
+
+.gallery-container input:checked {
+  width: 5px;
+  left: auto;
+  right: 0px;
+}
+
+// sibiling to the input is affected
+.gallery-container input:checked ~ figure {
+  left: calc((100vw - (3 * 180px)) - 15px);
+  transition: all 0.7s ease-in-out;
+}
+
+.gallery-container input:checked ~ figcaption {
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+
+  header {
+    height: 0vh;
+  }
+  .gallery-container figure {
+    width: 100vw;
+    left: calc(100vw / 8);
+    box-shadow: none !important;
+    height: 100vh;
+  }
+
+  .gallery-container input:checked ~ figure {
+    left: calc(100vw - ((100vw / 8) * 3));
+    transition: all 0.7s ease-in-out;
+  }
+
+
+  h2 {
+    font-size: 50px;
+  }
+}
+
+// [ 1 ] Nested Absolute Positions Are Accumulated
+
+// You can position an element absolutely to a relative container but expect that it will not always be situated at that given value. But why? If I want 50px left then why is my element not 50px left in relation to the relative container?  When does this occur?
+
+// This might occur when your element is contained inside a parent element that is also positioned absolutely.  The absolute position of that parent, will be considered when calculating the final absolute position for any of its children.
+
+// Example:
+// An absolute element (called B) is set to left: 50px.
+// But element B is inside a parent (called Element A). Element A is also positioned absolutely left: 50px.
+// Both A and B are nested inside a shared parent/grandparent container, called Element C.
+// Element C is the one set to relative position and will therefore act as the reference point for the positioning of all of its absolute children and grandchildren (A and B respectively).
+// In the browser, we will see that Element A will indeed be positioned 50px left in relation to C. But the left position of Element B will be 100px, not 50px, in relation to C.
+// When calculating the final left position for B, the left position of the absolute parent (A) is added and results in a combined value of 100px.
+// You can think of it in terms of this: by the time the 50px left is applied to B, it is already positioned 50px left by courtesy of its parent - which is why it ends up being placed even further left (100px).
+
+
+p:last-child {
+  text-transform: uppercase;
+}

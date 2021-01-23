@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap");
+body {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 42, 42, 0.756)), to(rgba(223, 222, 222, 0.516)));
+  background: linear-gradient(rgba(43, 42, 42, 0.756), rgba(223, 222, 222, 0.516));
+  overflow: hidden;
+  height: 99vh;
+}
+
+header {
+  height: 10vh;
+}
+
+.gallery-container {
+  width: 95%;
+  margin: 0 auto !important;
+  position: relative;
+  overflow: hidden;
+  border-left: 15px solid #e4e4e4;
+  border-right: 15px solid #e4e4e4;
+}
+
+.gallery-container figure {
+  position: absolute;
+  top: 0;
+  left: 180px;
+  height: 80vh;
+  width: calc(100vw - (3 * 180px));
+  -webkit-box-shadow: 0 0 20px 1px rgba(60, 60, 60, 0.941);
+          box-shadow: 0 0 20px 1px rgba(60, 60, 60, 0.941);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  padding: 0;
+  margin: 0;
+  background: #e4e4e4;
+}
+
+.gallery-container figure figcaption {
+  color: white;
+  font-weight: 20px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-family: "Lobster Two", cursive;
+  /* transform: rotate(-2deg); */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+h2 {
+  display: block;
+  width: 20%;
+  color: #292929;
+  text-align: right;
+  font-size: 60px;
+}
+
+.gallery-container > figure {
+  position: relative;
+  left: -15px !important;
+}
+
+.gallery-container figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.gallery-container input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  opacity: 0;
+  z-index: 100;
+}
+
+.gallery-container input:checked {
+  width: 5px;
+  left: auto;
+  right: 0px;
+}
+
+.gallery-container input:checked ~ figure {
+  left: calc((100vw - (3 * 180px)) - 15px);
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.gallery-container input:checked ~ figcaption {
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  header {
+    height: 0vh;
+  }
+  .gallery-container figure {
+    width: 100vw;
+    left: calc(100vw / 8);
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    height: 100vh;
+  }
+  .gallery-container input:checked ~ figure {
+    left: calc(100vw - ((100vw / 8) * 3));
+    -webkit-transition: all 0.7s ease-in-out;
+    transition: all 0.7s ease-in-out;
+  }
+  h2 {
+    font-size: 50px;
+  }
+}
+
+p:last-child {
+  text-transform: uppercase;
+}

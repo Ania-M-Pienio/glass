@@ -1,0 +1,92 @@
+@import "partials/colors";
+@import "partials/typography";
+
+body,
+body * {
+  margin: 0;
+  padding: 0;
+}
+
+.main-bg {
+  background: url(../assets/mountain-dark-bg.jpg);
+  background-size: cover;
+  background-color: lightcyan;
+  overflow: hidden;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.863), rgba(0, 0, 0, 0.438));
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.second-bg {
+  background: url(../assets/car-bg.png);
+  background-size: cover;
+  position: relative;
+}
+
+.glass {
+  &--medium {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  &--heavier {
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  &--dark {
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+.item {
+   z-index: 1;
+  .sub-item {
+    top: 120%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 3;
+    @media (min-width: 992px) {
+      width: 110%;
+    }
+  }
+  .item-img {
+    height: 25vh;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+button#hover {
+  &:hover + div.sub-item {
+    opacity: 1;
+  }
+}
+
+.icons {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}

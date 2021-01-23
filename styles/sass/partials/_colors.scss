@@ -1,0 +1,9 @@
+$none: rgba(255, 255, 255, 0);
+$white: white; 
+
+.btn-white {
+  background-color: white;
+}
+.btn-none {
+  background-color: $none;
+}

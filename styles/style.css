@@ -1,0 +1,112 @@
+.btn-white {
+  background-color: white;
+}
+
+.btn-none {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.fs-giga {
+  font-size: 200px;
+}
+
+body,
+body * {
+  margin: 0;
+  padding: 0;
+}
+
+.main-bg {
+  background: url(../assets/mountain-dark-bg.jpg);
+  background-size: cover;
+  background-color: lightcyan;
+  overflow: hidden;
+}
+
+.main-bg:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.863)), to(rgba(0, 0, 0, 0.438)));
+  background: linear-gradient(rgba(0, 0, 0, 0.863), rgba(0, 0, 0, 0.438));
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.second-bg {
+  background: url(../assets/car-bg.png);
+  background-size: cover;
+  position: relative;
+}
+
+.glass--medium {
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+          box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass--heavier {
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+          box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glass--dark {
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+          box-shadow: 0 8px 32px 0 rgba(8, 8, 8, 0.616);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.item {
+  z-index: 1;
+}
+
+.item .sub-item {
+  top: 120%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  z-index: 3;
+}
+
+@media (min-width: 992px) {
+  .item .sub-item {
+    width: 110%;
+  }
+}
+
+.item .item-img {
+  height: 25vh;
+}
+
+.item .item-img img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+button#hover:hover + div.sub-item {
+  opacity: 1;
+}
+
+.icons {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}

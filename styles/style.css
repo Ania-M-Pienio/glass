@@ -22,10 +22,12 @@ body * {
 }
 
 .main-bg {
-  background: url(../assets/mountain-dark-bg.jpg);
+  background: url(../assets/hero-bg.png);
   background-size: cover;
   background-color: lightcyan;
+  background-attachment: fixed;
   overflow: hidden;
+  padding-top: 500px;
 }
 
 .main-bg:before {

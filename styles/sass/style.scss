@@ -6,6 +6,13 @@ body * {
   margin: 0;
   padding: 0;
 }
+@mixin wrapper($size) {
+  max-width: $size;
+  margin: 0 auto;
+}
+.container-1500 {
+  @include wrapper(1500px);
+}
 
 .main-bg {
   background: url(../assets/mountain-dark-bg.jpg);
